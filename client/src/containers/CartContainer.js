@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
 import Cart from '../components/Cart';
-import Header from '../components/Header';
 
 const mapStateToProps = (state, ownProps) => ({
   cartCounter: state.cartCounter,

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Navbar,
-  NavbarToggler,
   Nav,
   NavItem,
   NavLink,
@@ -11,14 +10,6 @@ import logo from '../../images/oresto-blanc.png';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -28,8 +19,7 @@ class Header extends React.Component {
     return (
       <div className="fixed-top container-fluid">
         <Navbar className ="navbar container" expand="md">
-          <img className="logo" href="/" src={ logo }/>
-          <NavbarToggler onClick={this.toggle} />
+          <img className="logo" href="/" alt="logo o'resto" src={ logo }/>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <Link href="/" to="/"><NavLink href="/"><i className="fas fa-home"></i>Accueil</NavLink></Link>
@@ -51,7 +41,9 @@ class Header extends React.Component {
   }
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  cartCouter: PropTypes.number.isRequired,
+};
 
 
 export default Header;

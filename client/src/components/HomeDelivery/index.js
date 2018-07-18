@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class HomeDelivery extends Component {
   render() {
@@ -10,7 +9,5 @@ class HomeDelivery extends Component {
     )
   }
 }
-
-HomeDelivery.propTypes = {};
 
 export default HomeDelivery;

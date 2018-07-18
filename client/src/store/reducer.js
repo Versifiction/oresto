@@ -30,7 +30,7 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case ADD_QUANTITY_HANDLE:
-    console.log(currentState.menu);
+    action.menu.quantity + 1;
     return {
       ...currentState,
     };
@@ -40,10 +40,14 @@ const reducer = (currentState = initialState, action = {}) => {
 
     //   };
 
-    // case DELETE_MENU_HANDLE:
-    //   return {
-        
-    //   };
+    case DELETE_MENU_HANDLE:
+    console.log(currentState.menus.length);
+    return {
+      ...currentState,
+      menus: currentState.menus.filter(menu => menu.id !== action.menu.id),
+      cartCounter: currentState.menus.length - 1,
+
+      };
 
     default: return currentState;
   }

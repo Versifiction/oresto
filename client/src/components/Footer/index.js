@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import logo from '../../images/oresto-blanc.png';
 
@@ -30,7 +29,7 @@ class Footer extends Component {
                         <ListGroupItem tag="a" href="www.instagram.com/o_resto">Instagram</ListGroupItem>
                     </ListGroup>
                     <div className="text-center col-lg-3 col-md-6">
-                        <img className="logo-footer" src={ logo }/>
+                        <img className="logo-footer" alt="logo o'resto" src={ logo }/>
                         <p className="text-white">2018 &copy; copyright o'resto</p>
                     </div>
                 </div>

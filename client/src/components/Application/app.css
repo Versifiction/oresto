@@ -11,7 +11,7 @@ a {
 body {
 	font-family: 'Montserrat';
 	font-weight: bold;
-	background-color: #000;
+	background-color: #0C0203;
 }
 
 .fixed-top {
@@ -42,7 +42,7 @@ body {
 	border: 1px solid #ffc0cb;
 	border-radius: 3px;
 	margin-right: 0;
-	color: $pink;
+	color: #C4A8AC;
 }
 
 .logo {
@@ -80,7 +80,7 @@ body {
 
 .btn {
 	border-radius: 0;
-	background-color: #f00;
+	background-color: #BC001C;
 	border: none;
 	display: block;
 	margin: 0 auto;
@@ -88,16 +88,16 @@ body {
 }
 
 .btn:hover {
-	background-color: $red;
+	background-color: #BC001C;
 }
 
 .banner p a:hover {
-	color: #fff;
+	color: #EDD5D8;
 }
 
 h1 {
 	text-transform: uppercase;
-	color: #fff;
+	color: #EDD5D8;
 	text-align: center;
 	font-size: 6.5rem;
 	font-weight: bold;
@@ -121,6 +121,7 @@ h1 {
 
 .fa-angle-down:hover {
 	cursor: pointer;
+	color: #EDD5D8;
 }
 
 .fa-home {
@@ -138,17 +139,17 @@ h1 {
 .footer {
 	padding-top: 10rem;
 	padding-bottom: 10rem;
-	background-color: #000;
+	background-color: #0C0203;
 }
 
 .footer ul {
-	background-color: #000;
+	background-color: #0C0203;
 }
 
 .footer ul a {
 	width: 15rem;
-	background-color: #000;
-	color: $pink;
+	background-color: #0C0203;
+	color: #C4A8AC;
 }
 
 .logo-footer {
@@ -163,7 +164,7 @@ h1 {
 	color: #fff;
 	font-weight: 300;
 	font-size: 1.2rem;
-	background-color: #000;
+	background-color: #0C0203;
 }
 
 .presentation-image {
@@ -232,7 +233,7 @@ h2 {
 	position: absolute;
 	right: -10px;
 	bottom: -10px;
-	background: #f00;
+	background: #BC001C;
 	border-radius: 50%;
 	width: 25px;
 	height: 25px;

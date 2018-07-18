@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import Header from '../../containers/HeaderContainer';
 import HeadBanner from '../HeadBanner';
 import Presentation from '../Presentation';
@@ -21,9 +19,6 @@ class Accueil extends Component {
         );
     }
 }
-
-
-Accueil.propTypes = {};
 
 
 export default Accueil;

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class LoginForm extends Component {
     render() {

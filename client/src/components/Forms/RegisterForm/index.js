@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class RegisterForm extends Component {
     render() {
@@ -20,15 +20,15 @@ class RegisterForm extends Component {
                     <Input type="password" name="password" id="examplePassword" placeholder="Entrez votre mot de passe" />
                     </FormGroup>
                     <FormGroup>
-                    <Label for="examplePassword">Confirmer le mot de passe</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="Entrez votre mot de passe" />
+                    <Label for="exampleConfirmPassword">Confirmer le mot de passe</Label>
+                    <Input type="password" name="password" id="exampleConfirmPassword" placeholder="Entrez votre mot de passe" />
                     </FormGroup>
                     <FormGroup>
                     <Label for="exampleAddress">Adresse</Label>
                     <Input type="address" name="address" id="exampleAddress" placeholder="Entrez votre adresse" />
                     </FormGroup>
                     <FormGroup>
-                    <Label for="exampleAddress">Téléphone</Label>
+                    <Label for="exampleTelephone">Téléphone</Label>
                     <Input type="telephone" name="telephone" id="exampleTelephone" placeholder="Entrez votre numéro de téléphone" />
                     </FormGroup>
                     <Button>Envoyer</Button>

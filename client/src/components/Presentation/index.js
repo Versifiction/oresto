@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import presentationImage from '../../images/presentation-image.jpeg';
 import { Button } from 'reactstrap';
 
@@ -10,15 +9,13 @@ class Presentation extends React.Component {
         <p>O'resto est un restaurant gastronomique situé en plein coeur de Paris. Composé de 3 salons, il vous propose trois univers
           différents pour passer un moment agréable autour des mets préparés par les chefs-cuisiniers et leur équipe.</p> 
         <div className="position-relative">
-          <img className="presentation-image" href="/" src={ presentationImage } />
+          <img className="presentation-image" href="/" src={ presentationImage } alt="presentation"/>
           <Button className="btn presentation-btn position-absolute">Découvrez les menus</Button>{' '}
         </div>        
       </div>
     );
   }
 }
-
-Presentation.propTypes = {};
 
 
 export default Presentation;

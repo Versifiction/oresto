@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import Accueil from '../Accueil';
 import Menus from '../Menus';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
 import Cart from '../../containers/CartContainer';
 import { Route } from 'react-router-dom';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
 
@@ -21,11 +20,5 @@ const App = () => (
     <Route path='/panier' exact component={ Cart } />
   </div>
 );
-
-App.propTypes = {
-};
-
-App.defaultProps = {
-};
 
 export default App;
