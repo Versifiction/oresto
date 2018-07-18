@@ -1,22 +1,19 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import logo from './logo.svg'
 import './App.css'
 import store from './store'
-import Customers from './components/Customer/customers'
+import Application from './components/Application'
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends Component {
 
   render () {
     return (
       <Provider store={ store }>
-        <div className="App">
-          <header className="App-header">
-            <img src={ logo } className="App-logo" alt="logo"/>
-            <h1 className="App-title">React/Redux Express Starter</h1>
-          </header>
-          <Customers/>
-        </div>
+        <Router>
+          <Application />
+        </Router>
       </Provider>
     )
   }

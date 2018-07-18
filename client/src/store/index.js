@@ -1,12 +1,29 @@
-import {createStore, applyMiddleware, compose} from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+/**
+ * Dépendances npm : utilitaire Redux
+ */
+import { createStore, compose, applyMiddleware } from 'redux';
 
-const middleware = [
-  thunk
-]
-const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/**
+ * Dépendances locales : le reducer
+ */
+import reducer from './reducer';
+import preventDuplicates from './middlewares/preventDuplicates';
 
-export default createStore(rootReducer, withDevTools(
-  applyMiddleware(...middleware)
-))
+/**
+ * Création du store
+ */
+// https://github.com/zalmoxisus/redux-devtools-extension
+const devTools = []
+if (window.devToolsExtension) {
+  // On configure l'extension Redux pour Chrome/Firefox.
+  devTools.push(window.devToolsExtension());
+}
+
+const preventDuplicatesMW = applyMiddleware(preventDuplicates);
+
+const enhancers = compose(preventDuplicatesMW, ...devTools);
+
+const store = createStore(reducer, enhancers);
+
+export default store;
+
