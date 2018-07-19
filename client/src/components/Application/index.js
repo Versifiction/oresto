@@ -5,6 +5,7 @@ import Inscription from '../Inscription';
 import Connexion from '../Connexion';
 import Cart from '../../containers/CartContainer';
 import { Route } from 'react-router-dom';
+// eslint-disable-next-line
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 

@@ -5,16 +5,6 @@ import Header from '../../containers/HeaderContainer';
 import Footer from '../Footer';
 
 class Cart extends Component {
-    state = {
-        menus: []
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:3001/menus")
-        .then(res => res.json())
-        .then(menus => this.setState({ menus }));
-    };
-
     render() {
         console.log(this.props.cartCounter);
 

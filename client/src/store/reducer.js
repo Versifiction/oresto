@@ -1,20 +1,20 @@
 const initialState = {
   menus: [],
   cartCounter: 0,
-  menu: [],
 };
 
-const ADD_CART_HANDLE = 'ADD_CART_HANDLE';
-const ADD_CART_MENUS = 'ADD_CART_MENUS';
-const ADD_QUANTITY_HANDLE = 'ADD_QUANTITY_HANDLE';
-const REMOVE_QUANTITY_HANDLE = 'REMOVE_QUANTITY_HANDLE';
-const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
+export const ADD_CART_HANDLE = 'ADD_CART_HANDLE';
+export const ADD_CART_MENUS = 'ADD_CART_MENUS';
+export const ADD_QUANTITY_HANDLE = 'ADD_QUANTITY_HANDLE';
+export const REMOVE_QUANTITY_HANDLE = 'REMOVE_QUANTITY_HANDLE';
+export const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
     case ADD_CART_HANDLE:
     // console.log(currentState.cartCounter);
     // console.log(action.menu);
+    // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
       return {
         ...currentState, 
         cartCounter: currentState.menus.length + 1,
@@ -30,24 +30,42 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case ADD_QUANTITY_HANDLE:
-    action.menu.quantity + 1;
-    return {
-      ...currentState,
-    };
-
-    // case REMOVE_QUANTITY_HANDLE:
-    //   return {
-
-    //   };
+      console.log("ajouté")
+      const currentCart = currentState.menus.map((menu => {
+        if(menu.id === action.menu.id){
+          menu.quantity = menu.quantity + 1
+          console.log(menu.quantity)
+          return menu
+        };
+        return menu
+      }))
+      return {
+        ...currentState,
+        menus: currentCart,
+      }
+    case REMOVE_QUANTITY_HANDLE:
+      const currentCartRemove = currentState.menus.map((menu => {
+        if(menu.id === action.menu.id){
+          menu.quantity = menu.quantity - 1
+          console.log(menu.quantity)
+          return menu
+        };
+        return menu
+      }))
+      return {
+        ...currentState,
+        menus: currentCartRemove,
+      }
 
     case DELETE_MENU_HANDLE:
-    console.log(currentState.menus.length);
-    return {
-      ...currentState,
-      menus: currentState.menus.filter(menu => menu.id !== action.menu.id),
-      cartCounter: currentState.menus.length - 1,
-
-      };
+      console.log(currentState.menus.length);
+      // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
+      const currentCartDelete = currentState.menus.filter(menu => menu.id !== action.menu.id);
+      return {
+        ...currentState,
+        menus: currentCartDelete,
+        cartCounter: currentCartDelete.length,
+        };
 
     default: return currentState;
   }
@@ -57,8 +75,9 @@ export const addCartHandle = () => ({
   type: ADD_CART_HANDLE,
 });
 
-export const addQuantityHandle = () => ({
+export const addQuantityHandle = (menu) => ({
   type: ADD_QUANTITY_HANDLE,
+  menu,
 });
 
 export const removeQuantityHandle = () => ({
