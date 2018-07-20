@@ -7,7 +7,6 @@ const preventDuplicates = store => next => (action) => {
   switch (action.type) {
     case ADD_CART_HANDLE:
       const menus = store.getState().menus;
-      let cartCounter = store.getState().cartCounter;
       if (menus.find((menu => menu.id === action.menu.id))) {
         store.dispatch(addQuantityHandle(action.menu));
       } 

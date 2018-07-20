@@ -26,7 +26,7 @@ const reducer = (currentState = initialState, action = {}) => {
       menus: [
         ...currentState.menus, action.menu,
       ],
-      cartCounter: cartCounterSum,
+      cartCounter: currentState.menus.length + 1,
     };
     
     
