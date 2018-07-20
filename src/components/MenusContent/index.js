@@ -6,13 +6,13 @@ import image from '../../images/motorcycle.jpg';
 
 class MenusContent extends Component {
     state = {
-        menus: []
+        menus: [],
     }
 
     componentDidMount() {
         fetch("/menus")
-        .then(res => res.json())
-        .then(menus => this.setState({ menus }));
+            .then(res => res.json())
+            .then(menus => this.setState({ menus }));
     }
 
     
