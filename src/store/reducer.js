@@ -1,6 +1,7 @@
 const initialState = {
   menus: [],
   cartCounter: 0,
+  total: 0,
 };
 
 export const ADD_CART_HANDLE = 'ADD_CART_HANDLE';
@@ -12,25 +13,16 @@ export const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
     case ADD_CART_HANDLE:
-    // console.log(currentState.cartCounter);
-    // console.log(action.menu);
-    // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
-    let cartCounterSum;
-    if (currentState.menus > 0){
-      cartCounterSum = currentState.menus.reduce(function(total, menu) {
-        return total + menu.quantity;
-      }, 0);
-    }
-    return {
-      ...currentState, 
-      menus: [
-        ...currentState.menus, action.menu,
-      ],
-      cartCounter: currentState.menus.length + 1,
-    };
-    
-    
+      // console.log(currentState.cartCounter);
+      // console.log(action.menu);
+      // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
+      let cartCounterSum;
+      const menusEdited = [ ...currentState.menus, action.menu ];
 
+      return {
+        ...currentState, 
+        menus: menusEdited,
+      };
 
     case ADD_CART_MENUS:
       return {
@@ -43,7 +35,6 @@ const reducer = (currentState = initialState, action = {}) => {
       const currentCart = currentState.menus.map((menu => {
         if(menu.id === action.menu.id){
           menu.quantity = menu.quantity + 1
-          console.log(menu.quantity)
           return menu
         };
         return menu
@@ -56,7 +47,6 @@ const reducer = (currentState = initialState, action = {}) => {
       const currentCartRemove = currentState.menus.map((menu => {
         if(menu.id === action.menu.id){
           menu.quantity = menu.quantity - 1
-          console.log(menu.quantity)
           return menu
         };
         return menu
@@ -73,7 +63,6 @@ const reducer = (currentState = initialState, action = {}) => {
       return {
         ...currentState,
         menus: currentCartDelete,
-        cartCounter: currentCartDelete.length,
         };
 
     default: return currentState;

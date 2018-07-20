@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 
 const mapStateToProps = (state, ownProps) => ({
-  cartCounter: state.cartCounter,
+  cartCounter: state.menus.reduce(function(total, menu) {
+    return total + menu.quantity;
+  }, 0),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

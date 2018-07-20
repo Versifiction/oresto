@@ -6,8 +6,6 @@ import Footer from '../Footer';
 
 class Cart extends Component {
     render() {
-        console.log(this.props.cartCounter);
-
         return (
             <div className="panier container">
                 <Header />
@@ -32,6 +30,9 @@ class Cart extends Component {
                         )}
                     </tbody>
                 </Table>
+                <div className="panier-total text-right">
+                    <p>Total : {this.props.total}€</p>
+                </div>
                 <Footer />
             </div>
         );

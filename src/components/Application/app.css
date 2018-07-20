@@ -249,9 +249,13 @@ h2 {
 	font-weight: 300;
 }
 
-.panier-header {
+.panier-header, .panier-total {
 	color: #fff;
 	font-weight: 700;
+}
+
+.panier-total {
+	font-size: 1.5rem;
 }
 
 .table {
