@@ -31,7 +31,7 @@ class Cart extends Component {
                     </tbody>
                 </Table>
                 <div className="panier-total text-right">
-                    <p>Total : {this.props.total}€</p>
+                    <p>Total : {this.props.total.toFixed(2)}€</p>
                 </div>
                 <Footer />
             </div>

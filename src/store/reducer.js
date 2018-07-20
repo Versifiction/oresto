@@ -82,8 +82,9 @@ export const removeQuantityHandle = () => ({
   type: REMOVE_QUANTITY_HANDLE,
 });
 
-export const deleteMenuHandle = () => ({
+export const deleteMenuHandle = (menu) => ({
   type: DELETE_MENU_HANDLE,
+  menu,
 });
 
 export default reducer;

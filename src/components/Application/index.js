@@ -10,7 +10,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
 
-import './app.css';
+import './app.styl';
 
 const App = () => (
   <div>
