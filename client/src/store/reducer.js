@@ -15,12 +15,6 @@ const reducer = (currentState = initialState, action = {}) => {
     // console.log(currentState.cartCounter);
     // console.log(action.menu);
     // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
-    let cartCounterSum;
-    if (currentState.menus > 0){
-      cartCounterSum = currentState.menus.reduce(function(total, menu) {
-        return total + menu.quantity;
-      }, 0);
-    }
     return {
       ...currentState, 
       menus: [
