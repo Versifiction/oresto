@@ -17,7 +17,7 @@ const preventDuplicates = store => next => (action) => {
       break
     case REMOVE_QUANTITY_HANDLE:
       const menusRemove = store.getState().menus;
-      if (menusRemove.find((menu => menu.quantity <= 1))) {
+      if (menusRemove.find((menu => action.menu.quantity <= 1))) {
         store.dispatch(deleteMenuHandle(action.menu));
       }
       else {
