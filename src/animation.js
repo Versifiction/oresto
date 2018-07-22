@@ -6,7 +6,7 @@ var app = {
     },
     scrollHandler: function() {
         if ((window.pageYOffset) >= 75) {
-            $('.fixed-top').css('background-color', '0C0203');
+            $('.fixed-top').css('background-color', '#0C0203');
         } else {
             $('.fixed-top').css('background-color', 'transparent');
         }
