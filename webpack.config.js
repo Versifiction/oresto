@@ -30,7 +30,7 @@ module.exports = {
       './src/index.styl',
       // JS
       './src/index.js',
-      './src/animation.js',
+      './src/animation/animation.js',
     ],
   },
   // Sortie
