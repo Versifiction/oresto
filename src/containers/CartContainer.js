@@ -8,6 +8,9 @@ const mapStateToProps = (state, ownProps) => ({
   total: state.menus.reduce(function(total, menu) {
     return total + menu.price * menu.quantity;
   }, 0),
+  // currentTotal: state.menus.reduce(function(total1, menu){
+  //   return total1 + action.menu.price * action.menu.quantity;
+  // }, 0),
 });
 
 const mapDispatchToProps = (dispatch, getState, ownProps) => ({

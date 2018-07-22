@@ -42,7 +42,8 @@ const reducer = (currentState = initialState, action = {}) => {
       return {
         ...currentState,
         menus: currentCart,
-      }
+      };
+      
     case REMOVE_QUANTITY_HANDLE:
       const currentCartRemove = currentState.menus.map((menu => {
         if(menu.id === action.menu.id){
@@ -54,7 +55,7 @@ const reducer = (currentState = initialState, action = {}) => {
       return {
         ...currentState,
         menus: currentCartRemove,
-      }
+      };
 
     case DELETE_MENU_HANDLE:
       console.log(currentState.menus.length);
@@ -63,7 +64,7 @@ const reducer = (currentState = initialState, action = {}) => {
       return {
         ...currentState,
         menus: currentCartDelete,
-        };
+      };
 
     default: return currentState;
   }

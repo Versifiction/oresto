@@ -3,8 +3,25 @@ import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import Header from '../../containers/HeaderContainer';
 import Footer from '../Footer';
+import { Link } from 'react-router-dom';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class Cart extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          modal: false
+        };
+    
+        this.toggle = this.toggle.bind(this);
+      }
+    
+      toggle() {
+        this.setState({
+          modal: !this.state.modal
+        });
+      }
+      
     render() {
         return (
             <div className="panier container">
@@ -32,6 +49,23 @@ class Cart extends Component {
                 </Table>
                 <div className="panier-total text-right">
                     <p>Total : {this.props.total.toFixed(2)}€</p>
+                </div>
+                <div>
+                    <Button color="primary" onClick={this.toggle}>
+                        Valider votre commande
+                    </Button>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                        <ModalHeader toggle={this.toggle}>Récapitulatif commande</ModalHeader>
+                        <ModalBody>
+                            {this.props.menus.map(menu =>
+                            <p>{menu.name} - <span className="price">{menu.price}€</span> - <span className="price">x{menu.quantity}</span> = {menu.price * menu.quantity}€</p>
+                            )}
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button onClick={this.toggle}>Annuler</Button>
+                            <Link href="/livraison" to="/livraison"><Button onClick={this.toggle}>Valider</Button>{' '}</Link>
+                        </ModalFooter>
+                    </Modal>
                 </div>
                 <Footer />
             </div>
