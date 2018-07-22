@@ -38,7 +38,7 @@ class Cart extends Component {
                     </thead>
                     <tbody>
                         {this.props.menus.map(menu =>
-                        <tr className="panier-list" key={menu.id}>
+                        <tr className="panier-list" key={menu.picture}>
                             <td>{menu.name}</td>
                             <td>{menu.price}€</td>
                             <td><i className="fas fa-minus-square" onClick={this.props.removeQuantityHandle(menu)}></i> {menu.quantity} <i className="fas fa-plus-square" onClick={this.props.addQuantityHandle(menu)}></i></td>
@@ -58,7 +58,7 @@ class Cart extends Component {
                         <ModalHeader toggle={this.toggle}>Récapitulatif commande</ModalHeader>
                         <ModalBody>
                             {this.props.menus.map(menu =>
-                            <p><span className="name-recapitulatif">{menu.name}</span> - <span className="price-recapitulatif">{menu.price}€</span> - <span className="quantite-recapitulatif">x{menu.quantity}</span> = <span className="total-recapitulatif">{menu.price * menu.quantity}€</span></p>
+                            <p key={menu.picture}><span className="name-recapitulatif">{menu.name}</span> - <span className="price-recapitulatif">{menu.price}€</span> - <span className="quantite-recapitulatif">x{menu.quantity}</span> = <span className="total-recapitulatif">{(menu.price * menu.quantity).toFixed(2)}€</span></p>
                             )}
                         </ModalBody>
                         <ModalFooter>

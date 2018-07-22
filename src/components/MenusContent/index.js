@@ -23,7 +23,7 @@ class MenusContent extends Component {
                 <h2 className="text-center">Menus</h2>
                 {this.state.menus.map(menu =>
                     <Card key={menu.id}  >
-                        <img top width="100%" src={menu.picture} alt="Card image cap" />
+                        <img width="100%" src={menu.picture} alt="Card image cap" />
                         <CardBody >
                         <CardTitle>{menu.name} <span className="price">{menu.price}€</span></CardTitle>
                         <CardText>{menu.description}</CardText>
