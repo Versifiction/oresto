@@ -58,7 +58,7 @@ class Cart extends Component {
                         <ModalHeader toggle={this.toggle}>Récapitulatif commande</ModalHeader>
                         <ModalBody>
                             {this.props.menus.map(menu =>
-                            <p>{menu.name} - <span className="price">{menu.price}€</span> - <span className="price">x{menu.quantity}</span> = {menu.price * menu.quantity}€</p>
+                            <p><span className="name-recapitulatif">{menu.name}</span> - <span className="price-recapitulatif">{menu.price}€</span> - <span className="quantite-recapitulatif">x{menu.quantity}</span> = <span className="total-recapitulatif">{menu.price * menu.quantity}€</span></p>
                             )}
                         </ModalBody>
                         <ModalFooter>

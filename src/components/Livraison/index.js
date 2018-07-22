@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import Header from '../../containers/HeaderContainer';
 import Footer from '../Footer';
@@ -27,7 +28,7 @@ class Livraison extends Component {
                     <Label for="exampleAddress">Complément d'adresse</Label>
                     <Input type="textarea" name="address" id="exampleComplementAddress" placeholder="Entrez un complément d'adresse" />
                     </FormGroup>
-                    <Button>Envoyer</Button>
+                    <Link href="/paiement" to="/paiement"><Button>Envoyer</Button></Link>
                 </Form>
                 <Footer />
             </div>

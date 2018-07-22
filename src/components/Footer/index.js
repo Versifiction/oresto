@@ -16,7 +16,7 @@ class Footer extends Component {
                     </ListGroup>
                     <ListGroup className="col-lg-3 col-md-6" flush>
                         <ListGroupItem className="text-white" tag="a">Nous contacter</ListGroupItem>
-                        <ListGroupItem tag="a" href="/">Contact</ListGroupItem>
+                        <ListGroupItem tag="a" href="/contact">Contact</ListGroupItem>
                         <ListGroupItem tag="a" href="/serviceclient">Service client</ListGroupItem>
                         <ListGroupItem tag="a" href="/faq">FAQ</ListGroupItem>
                         <ListGroupItem tag="a" href="/mentionslegales">Mentions légales</ListGroupItem>
