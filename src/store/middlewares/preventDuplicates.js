@@ -38,12 +38,12 @@ const preventDuplicates = store => next => (action) => {
       axios.post('/deliveryData', store.getState().deliveryAddress)
         .then(function (response) {
           console.log(response);
-          next(action); // dans le reducer, je vide les champs de deliveryAddress
         })
         .catch(function (error) {
           console.log(error);
         });
-    
+        
+        next(action); // dans le reducer, je vide les champs de deliveryAddress
 
       break
 

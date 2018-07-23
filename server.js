@@ -96,9 +96,22 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.post('/deliveryData', (req, res) => {
   console.log(req.body);
-  // on a reçu l'objet des données (req.body)
-  // on insère les data dans la base de données
-  res.send({});
+  db.run(
+    'INSERT INTO client_addresses VALUES ($nameValue, $addressValue, $telephoneValue, $addressComplementValue)',
+    {
+      $nameValue: req.body.nameValue,
+      $addressValue: req.body.addressValue,
+      $telephoneValue: req.body.telephoneValue,
+      $addressComplementValue: req.body.addressComplementValue                  
+    },
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/deliveryData)'});
+      } else {
+        res.send({message: 'successful run app.post(/deliveryData)'});     
+      }
+    } 
+  );
 });
 
 const port = 5000;
