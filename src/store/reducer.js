@@ -2,6 +2,10 @@ const initialState = {
   menus: [],
   cartCounter: 0,
   total: 0,
+  nameValue: '',
+  telephoneValue: '',
+  addressValue: '',
+  addressComplementValue: '',
 };
 
 export const ADD_CART_HANDLE = 'ADD_CART_HANDLE';
@@ -9,6 +13,8 @@ export const ADD_CART_MENUS = 'ADD_CART_MENUS';
 export const ADD_QUANTITY_HANDLE = 'ADD_QUANTITY_HANDLE';
 export const REMOVE_QUANTITY_HANDLE = 'REMOVE_QUANTITY_HANDLE';
 export const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const ON_SUBMIT_DELIVERY = 'ON_SUBMIT_DELIVERY';
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
@@ -66,6 +72,13 @@ const reducer = (currentState = initialState, action = {}) => {
         menus: currentCartDelete,
       };
 
+    case CHANGE_INPUT:
+    console.log(action.value);
+        return {
+          ...currentState,
+          [action.keyName + 'Value']: action.value,
+        }
+
     default: return currentState;
   }
 };
@@ -86,6 +99,12 @@ export const removeQuantityHandle = () => ({
 export const deleteMenuHandle = (menu) => ({
   type: DELETE_MENU_HANDLE,
   menu,
+});
+
+export const changeInput = ({ keyName, value }) => ({
+  type: 'CHANGE_INPUT',
+  value,
+  keyName,
 });
 
 export default reducer;

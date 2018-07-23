@@ -4,7 +4,7 @@ import Menus from '../Menus';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
 import Cart from '../../containers/CartContainer';
-import Livraison from '../Livraison';
+import Livraison from '../../containers/LivraisonContainer';
 import Paiement from '../Paiement';
 import { Route } from 'react-router-dom';
 // eslint-disable-next-line

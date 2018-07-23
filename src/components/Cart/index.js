@@ -58,8 +58,15 @@ class Cart extends Component {
                         <ModalHeader toggle={this.toggle}>Récapitulatif commande</ModalHeader>
                         <ModalBody>
                            {this.props.menus.map(menu =>
-                            <p key={menu.picture}><span className="name-recapitulatif">{menu.name}</span> - <span className="price-recapitulatif">{menu.price}€</span> - <span className="quantite-recapitulatif">x{menu.quantity}</span> = <span className="pricequantity-recapitulatif">{(menu.price * menu.quantity).toFixed(2)}€</span> <br /><span className="total-recapitulatif">Total : {this.props.total.toFixed(2)}€</span></p>
+                            <p key={menu.picture}>
+                                <span className="name-recapitulatif">{menu.name} - </span>
+                                <span className="price-recapitulatif">{menu.price}€ - </span>
+                                <span className="quantite-recapitulatif">x{menu.quantity} = </span> 
+                                <span className="pricequantity-recapitulatif">{(menu.price * menu.quantity).toFixed(2)}€</span> 
+                                <br />
+                            </p>
                            )}
+                           <span className="total-recapitulatif">Total : {this.props.total.toFixed(2)}€</span>
                         </ModalBody>
                         <ModalFooter>
                             <Button onClick={this.toggle}>Annuler</Button>

@@ -71,6 +71,15 @@ app.get('/menus', (req, res) => {
   ]);
 });
 
+app.get('/avis', (req, res) => {
+  res.json([
+    {
+      "id": 1,
+      "avis": "Très Très bon restaurant",
+    }
+  ])
+});
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
