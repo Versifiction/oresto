@@ -1,11 +1,15 @@
-const initialState = {
-  menus: [],
-  cartCounter: 0,
-  total: 0,
+const defaultDeliveryAddress = {
   nameValue: '',
   telephoneValue: '',
   addressValue: '',
   addressComplementValue: '',
+};
+
+const initialState = {
+  menus: [],
+  cartCounter: 0,
+  total: 0,
+  deliveryAddress: defaultDeliveryAddress,
 };
 
 export const ADD_CART_HANDLE = 'ADD_CART_HANDLE';
@@ -15,6 +19,7 @@ export const REMOVE_QUANTITY_HANDLE = 'REMOVE_QUANTITY_HANDLE';
 export const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 export const ON_SUBMIT_DELIVERY = 'ON_SUBMIT_DELIVERY';
+export const SEND_DELIVERY_ADDRESS = 'SEND_DELIVERY_ADDRESS';
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
@@ -26,7 +31,7 @@ const reducer = (currentState = initialState, action = {}) => {
       const menusEdited = [ ...currentState.menus, action.menu ];
 
       return {
-        ...currentState, 
+        ...currentState,
         menus: menusEdited,
       };
 
@@ -49,7 +54,7 @@ const reducer = (currentState = initialState, action = {}) => {
         ...currentState,
         menus: currentCart,
       };
-      
+
     case REMOVE_QUANTITY_HANDLE:
       const currentCartRemove = currentState.menus.map((menu => {
         if(menu.id === action.menu.id){
@@ -73,11 +78,22 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case CHANGE_INPUT:
-    console.log(action.value);
+        console.log(action.value);
+        const deliveryAddressEdited = {
+          ...currentState.deliveryAddress,
+          [action.key + 'Value']: action.value,
+        };
         return {
           ...currentState,
-          [action.keyName + 'Value']: action.value,
-        }
+          deliveryAddress: deliveryAddressEdited,
+        };
+
+    // L'utilisateur vient d'envoyer le formulaire, on vide le formulaire.
+    case SEND_DELIVERY_ADDRESS:
+      return {
+        ...currentState,
+        deliveryAddress: defaultDeliveryAddress, // reset
+      };
 
     default: return currentState;
   }
@@ -106,5 +122,11 @@ export const changeInput = ({ keyName, value }) => ({
   value,
   keyName,
 });
+
+export const sendDeliveryAddress = (deliveryAddress) => ({
+  type: SEND_DELIVERY_ADDRESS,
+  deliveryAddress,
+});
+
 
 export default reducer;

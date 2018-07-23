@@ -14,8 +14,11 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onChange: (name, value) => {
     const { nameValue, addressValue, addressComplementValue, telephoneValue } = ownProps;
-    dispatch(changeInput({ keyName: name, value }));
+    dispatch(changeInput({ key: name, value }));
   },
+  sendDeliveryAddress: () => {
+    dispatch()
+  }
 });
 
 const LivraisonContainer = connect(

@@ -25,7 +25,7 @@ class Livraison extends Component {
         return (
             <div className="container panier">
                 <Header />
-                <Form>
+                <Form onSubmit={this.props.sendDeliveryAddress}>
                     <FormGroup>
                     <Label for="exampleAddress">Nom</Label>
                     <Input type="name" name="name" id="exampleName" placeholder="Entrez votre nom" onChange={this.handleChange} value={nameValue} />

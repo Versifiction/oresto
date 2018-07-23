@@ -2,6 +2,9 @@ const express = require('express');
 
 const app = express();
 
+const sqlite3 = require('sqlite3');
+const db = new sqlite3.Database('deliveryAddresses.db');
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', true);
@@ -78,6 +81,25 @@ app.get('/avis', (req, res) => {
       "avis": "Très Très bon restaurant",
     }
   ])
+});
+
+app.get('/deliveryData', (req, res) => {
+  db.all('SELECT * FROM client_addresses', (err, rows) => {
+    console.log(rows);
+    const deliveryData = rows;
+    console.log(deliveryData);
+    res.json(deliveryData);
+  });
+});
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+app.post('/deliveryData', (req, res) => {
+  console.log(req.body);
+  // on a reçu l'objet des données (req.body)
+  // on insère les data dans la base de données
+  // TODO: ...
+  // res.send({});
 });
 
 const port = 5000;
