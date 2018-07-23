@@ -69,7 +69,7 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case DELETE_MENU_HANDLE:
-      console.log(currentState.menus.length);
+      // console.log(currentState.menus.length);
       // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
       const currentCartDelete = currentState.menus.filter(menu => menu.id !== action.menu.id);
       return {
@@ -78,7 +78,7 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case CHANGE_INPUT:
-        console.log(action.value);
+        // console.log(action.value);
         const deliveryAddressEdited = {
           ...currentState.deliveryAddress,
           [action.key + 'Value']: action.value,
@@ -117,15 +117,14 @@ export const deleteMenuHandle = (menu) => ({
   menu,
 });
 
-export const changeInput = ({ keyName, value }) => ({
+export const changeInput = ({ key, value }) => ({
   type: 'CHANGE_INPUT',
   value,
-  keyName,
+  key,
 });
 
-export const sendDeliveryAddress = (deliveryAddress) => ({
+export const sendDeliveryAddress = () => ({
   type: SEND_DELIVERY_ADDRESS,
-  deliveryAddress,
 });
 
 

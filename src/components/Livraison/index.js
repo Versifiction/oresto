@@ -25,7 +25,7 @@ class Livraison extends Component {
         return (
             <div className="container panier">
                 <Header />
-                <Form onSubmit={this.props.sendDeliveryAddress}>
+                <Form >
                     <FormGroup>
                     <Label for="exampleAddress">Nom</Label>
                     <Input type="name" name="name" id="exampleName" placeholder="Entrez votre nom" onChange={this.handleChange} value={nameValue} />
@@ -42,7 +42,7 @@ class Livraison extends Component {
                     <Label for="exampleAddress">Complément d'adresse</Label>
                     <Input type="textarea" name="addressComplement" id="exampleAddressComplement" placeholder="Entrez un complément d'adresse" onChange={this.handleChange} value={addressComplementValue} />
                     </FormGroup>
-                    <Link href="/paiement" to="/paiement"><Button>Envoyer</Button></Link>
+                    <Link href="/paiement" to="/paiement"><Button type="submit" onClick={this.props.sendDeliveryAddress}>Envoyer</Button></Link>
                 </Form>
                 <Footer />
             </div>

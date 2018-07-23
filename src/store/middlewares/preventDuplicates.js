@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { ADD_CART_HANDLE, addQuantityHandle } from '../reducer';
 import { REMOVE_QUANTITY_HANDLE, deleteMenuHandle } from '../reducer';
-import { SEND_DELIVERY_ADDRESS, deliveryAddress } from '../reducer';
+import { SEND_DELIVERY_ADDRESS } from '../reducer';
 
 /**
  * Ce middleware permet d'éviter de générer deux fois de suite la même valeur.
@@ -33,9 +33,19 @@ const preventDuplicates = store => next => (action) => {
       break
 
     case SEND_DELIVERY_ADDRESS:
+      console.log("MIDDLEWARE");
       // dans le mw qui traite l'action SEND_DELIVERY_ADDRESS
-      axios.post('/deliveryData', store.getState().deliveryAddress);
-      next(action); // dans le reducer, je vide les champs de deliveryAddress
+      axios.post('/deliveryData', store.getState().deliveryAddress)
+        .then(function (response) {
+          console.log(response);
+          next(action); // dans le reducer, je vide les champs de deliveryAddress
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    
+
+      break
 
     default: next(action);
   }

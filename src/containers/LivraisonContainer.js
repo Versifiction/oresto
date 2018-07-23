@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Livraison from 'src/components/Livraison';
-import { changeInput } from 'src/store/reducer';
+import { changeInput, sendDeliveryAddress } from 'src/store/reducer';
 
 const mapStateToProps = (state, ownProps) => ({
   nameValue: state[ownProps.nameValue],
@@ -13,11 +13,12 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onChange: (name, value) => {
-    const { nameValue, addressValue, addressComplementValue, telephoneValue } = ownProps;
+    console.log(name, value);
     dispatch(changeInput({ key: name, value }));
   },
   sendDeliveryAddress: () => {
-    dispatch()
+    console.log("DISPTACHED")
+    dispatch(sendDeliveryAddress());
   }
 });
 

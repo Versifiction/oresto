@@ -98,8 +98,7 @@ app.post('/deliveryData', (req, res) => {
   console.log(req.body);
   // on a reçu l'objet des données (req.body)
   // on insère les data dans la base de données
-  // TODO: ...
-  // res.send({});
+  res.send({});
 });
 
 const port = 5000;
