@@ -4,6 +4,7 @@ import {
   Navbar,
   Nav,
   NavItem,
+  Container,
   } from 'reactstrap';
 import logo from '../../images/oresto-blanc.png';
 import { Link } from 'react-router-dom';
@@ -16,8 +17,8 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <div className="fixed-top container-fluid">
-        <Navbar className ="navbar container" expand="md">
+      <Container fluid className="fixed-top">
+        <Navbar className="container" expand="md">
           <img className="logo" href="/" alt="logo o'resto" src={ logo }/>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -35,7 +36,7 @@ class Header extends React.Component {
             </Nav>
             <Link href="/panier" to="/panier"><i className="fas fa-shopping-cart"><div className="countPanier">{this.props.cartCounter}</div></i></Link>
         </Navbar>
-      </div>
+      </Container>
     );
   }
 }
