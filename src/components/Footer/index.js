@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 import logo from '../../images/oresto-blanc.png';
 
 class Footer extends Component {
@@ -10,9 +12,9 @@ class Footer extends Component {
                     <ListGroup className="col-lg-3 col-md-6" flush>
                         <ListGroupItem className="text-white" tag="a">Restaurant</ListGroupItem>
                         <ListGroupItem tag="a" href="/">Accueil</ListGroupItem>
-                        <ListGroupItem tag="a" href="/menus">Menus</ListGroupItem>
-                        <ListGroupItem tag="a" href="/galerie">Galerie</ListGroupItem>
-                        <ListGroupItem tag="a" href="/reservation">Réservation</ListGroupItem>
+                        <Link href="/menus" to="/menus"><ListGroupItem tag="a">Menus</ListGroupItem></Link>
+                        <Link href="/galerie" to="/galerie"><ListGroupItem tag="a">Galerie</ListGroupItem></Link>
+                        <Link href="/reservation" to="/reservation"><ListGroupItem tag="a">Réservation</ListGroupItem></Link>
                     </ListGroup>
                     <ListGroup className="col-lg-3 col-md-6" flush>
                         <ListGroupItem className="text-white" tag="a">Nous contacter</ListGroupItem>

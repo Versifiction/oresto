@@ -6,6 +6,8 @@ import Connexion from '../Connexion';
 import Cart from '../../containers/CartContainer';
 import Livraison from '../../containers/LivraisonContainer';
 import Paiement from '../Paiement';
+import Reservation from '../Reservation';
+import Galerie from '../Galerie';
 import { Route } from 'react-router-dom';
 // eslint-disable-next-line
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -21,6 +23,8 @@ const App = () => (
       <Route path='/panier' exact component={ Cart } />
       <Route path='/livraison' exact component={ Livraison } />
       <Route path='/paiement' exact component={ Paiement } />
+      <Route path='/reservation' exact component={ Reservation } />
+      <Route path='/galerie' exact component={ Galerie } />
     </div>
 );
 
