@@ -13,6 +13,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.get('/menus', (req, res) => {
   res.json([
     {
@@ -92,8 +96,6 @@ app.get('/deliveryData', (req, res) => {
   });
 });
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}));
 app.post('/deliveryData', (req, res) => {
   console.log(req.body);
   db.run(
