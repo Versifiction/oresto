@@ -25,7 +25,8 @@ class Livraison extends Component {
         return (
             <div className="container panier">
                 <Header />
-                <Form >
+                <Form className="formulaire">
+                    <h2 className="text-center">Vos coordonnées de livraison</h2>
                     <FormGroup>
                     <Label for="exampleAddress">Nom</Label>
                     <Input type="name" name="name" id="exampleName" placeholder="Entrez votre nom" onChange={this.handleChange} value={nameValue} />
