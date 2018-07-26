@@ -52,7 +52,7 @@ class Cart extends Component {
                 </div>
                 <div>
                     <div className="d-flex" >
-                        <Button color="primary" onClick={this.props.emptyCartHandler}>
+                        <Button color="primary" onClick={this.props.emptyCartHandler(this.props.menus)}>
                             Vider le panier
                         </Button>
                         <Button color="primary" onClick={this.toggle}>

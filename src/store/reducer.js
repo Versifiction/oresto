@@ -5,6 +5,8 @@ const defaultDeliveryAddress = {
   addressComplementValue: '',
 };
 
+const defaultMenus = [];
+
 const initialState = {
   menus: [],
   cartCounter: 0,
@@ -97,10 +99,9 @@ const reducer = (currentState = initialState, action = {}) => {
       };
 
     case EMPTY_CART_HANDLER:
-      const toto = [];
       return {
         ...currentState,
-        menus: toto,
+        menus: defaultMenus,
       };
 
     default: return currentState;
