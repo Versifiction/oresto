@@ -51,9 +51,14 @@ class Cart extends Component {
                     <p>Total : {this.props.total.toFixed(2)}€</p>
                 </div>
                 <div>
-                    <Button color="primary" onClick={this.toggle}>
-                        Valider votre commande
-                    </Button>
+                    <div className="d-flex" >
+                        <Button color="primary" onClick={this.props.emptyCartHandler}>
+                            Vider le panier
+                        </Button>
+                        <Button color="primary" onClick={this.toggle}>
+                            Valider votre commande
+                        </Button>
+                    </div>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>Récapitulatif commande</ModalHeader>
                         <ModalBody>
@@ -70,7 +75,7 @@ class Cart extends Component {
                         </ModalBody>
                         <ModalFooter>
                             <Button onClick={this.toggle}>Annuler</Button>
-                            <Link href="/livraison" to="/livraison"><Button onClick={this.toggle}>Valider</Button>{' '}</Link>
+                            <Link href="/livraison" to="/livraison"><Button onClick={this.toggle}>Valider</Button></Link>
                         </ModalFooter>
                     </Modal>
                 </div>
