@@ -18,7 +18,7 @@ class Avis extends Component {
             <div className="text-center container">
                 <h2>Avis des clients</h2>
                 {this.state.avis.map(opinion =>
-                    <div>
+                    <div key={opinion.id}>
                         <p>{opinion.name}</p>
                         <p>{opinion.avis}</p>
                     </div>
