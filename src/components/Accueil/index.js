@@ -4,7 +4,7 @@ import HeadBanner from '../HeadBanner';
 import Presentation from '../Presentation';
 import HomeDelivery from '../HomeDelivery';
 import Footer from '../Footer';
-
+import Avis from '../Avis';
 
 class Accueil extends Component {
     render() {
@@ -14,6 +14,7 @@ class Accueil extends Component {
                 <HeadBanner />
                 <Presentation />
                 <HomeDelivery />
+                <Avis />
                 <Footer />
             </div>
         );

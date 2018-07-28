@@ -13,5 +13,3 @@ db.serialize(() => {
         console.log(row.name + ": " + row.address + " - " + row.telephone + " - " + row.addressComplement);
     });
 });
-
-db.close();
