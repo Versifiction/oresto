@@ -1,11 +1,22 @@
-# O'Resto
+!! LE CODE EST POUR L'INSTANT DANS LA BRANCHE FIX/BUILDER !!
 
-Application fullstack JS :
+## Quick Start
 
-- client React
-- serveur Express
+``` bash
+# Install dependencies for server
+npm install
 
-``` sh
-# pour lancer :
-yarn start
-```
+# Install dependencies for client
+npm run client-install
+
+# Run the client & server with concurrently
+npm run dev
+
+# Run the Express server only
+npm run server
+
+# Run the React client only
+npm run client
+
+# Server runs on http://localhost:5000 and client on http://localhost:3000
+

@@ -27,26 +27,11 @@ export const EMPTY_CART_HANDLER = 'EMPTY_CART_HANDLER';
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
     case ADD_CART_HANDLE:
-<<<<<<< HEAD:client/src/store/reducer.js
-    // console.log(currentState.cartCounter);
-    // console.log(action.menu);
-    // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
-    return {
-      ...currentState, 
-      menus: [
-        ...currentState.menus, action.menu,
-      ],
-      cartCounter: currentState.menus.length + 1,
-    };
-    
-    
-=======
       // console.log(currentState.cartCounter);
       // console.log(action.menu);
       // MIDDLEWARE A UTILISER POUR TRANSFORMER L'ACTION ADDCARTHANDLE EN UNE ACTION ADDQUANTITYHANDLE
       let cartCounterSum;
       const menusEdited = [ ...currentState.menus, action.menu ];
->>>>>>> fix/builder:src/store/reducer.js
 
       return {
         ...currentState,
