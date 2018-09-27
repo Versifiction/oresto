@@ -2,6 +2,9 @@ const express = require('express');
 
 const app = express();
 
+const sqlite3 = require('sqlite3');
+const db = new sqlite3.Database('deliveryAddresses.db');
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', true);
@@ -10,13 +13,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.get('/menus', (req, res) => {
   res.json([
     {
       "id": 1,
       "name": "Falafel",
       "description": "Avec pouce d'épinard, sauce tahini.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "http://www.delonghi.com/Global/recipes/multifry/195.jpg",
       "price": 14.50,
       "quantity": 1,
     },
@@ -24,7 +31,7 @@ app.get('/menus', (req, res) => {
       "id": 2,
       "name": "Saucisse tocomen",
       "description": "Saucisse type toulouse, menthe, coriandre.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fwww.2Ecuisineactuelle.2Efr.2Fvar.2Fcui.2Fstorage.2Fimages.2Frecettes-de-cuisine.2Faperitif.2Famuse-bouches.2Fsaucisse-au-four-282817.2F3647205-1-fre-FR.2Fsaucisse-au-four.2Ejpg/748x372/quality/80/crop-from/center/saucisse-au-four.jpeg",
       "price": 16.90,
       "quantity": 1,
     },
@@ -32,7 +39,7 @@ app.get('/menus', (req, res) => {
       "id": 3,
       "name": "Thon saku mi-cuit",
       "description": "Thon albacure mi-cuit cuisiné maison.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "http://www.gillespudlowski.com/wp-content/uploads/2011/06/Saku_de_Thon_mi-cuit_Tokyo.jpg",
       "price": 18.90,
       "quantity": 1,
     },
@@ -40,7 +47,7 @@ app.get('/menus', (req, res) => {
       "id": 4,
       "name": "Poke bowl du KB",
       "description": "Thon & saumon mariné, avocat, mangue.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "https://media-cdn.tripadvisor.com/media/photo-s/0e/9c/ad/42/saumon-marine-a-la-minute.jpg",
       "price": 5.95,
       "quantity": 1,
     },
@@ -48,7 +55,7 @@ app.get('/menus', (req, res) => {
       "id": 5,
       "name": "Burger du KB",
       "description": "Burger maison au pastrami de veau.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "https://www.seriouseats.com/recipes/images/20100806-pastrami-burger-primary.jpg",
       "price": 18.50,
       "quantity": 1,
     },
@@ -56,7 +63,7 @@ app.get('/menus', (req, res) => {
       "id": 6,
       "name": "Bavure de boeuf angus",
       "description": "Et pommes de terre fondantes faites maison.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fwww.2Efemmeactuelle.2Efr.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fcuisine.2Frecettes.2Fplat.2Fboeuf-bourguignon-13923.2F14708189-1-fre-FR.2Fboeuf-bourguignon.2Ejpg/734x367/crop-from/center/quality/80/boeuf-bourguignon.jpg",
       "price": 17.90,
       "quantity": 1,
     },
@@ -64,11 +71,65 @@ app.get('/menus', (req, res) => {
       "id": 7,
       "name": "Salade du KB 2018",
       "description": "Pastrami de dinde, parmesan, roquette.",
-      "picture": "http://singleapp.com//images/menu_items/51961_mediterranean_spinach_cheese_dip_thumb.jpg",
+      "picture": "http://www.foodreporter.fr/upload/original/2/g/b/o/u/215397.jpg",
       "price": 17.90,
       "quantity": 1,
     },
   ]);
+});
+
+app.get('/avis', (req, res) => {
+  res.json([
+    {
+      "id": 1,
+      "name": "Gérard",
+      "avis": "Très bon restaurant, rien à dire. Super accueil et service !",
+    },
+    {
+      "id": 2,
+      "name": "Pierre",
+      "avis": "Très Très bon restaurant",
+    },
+    {
+      "id": 3,
+      "name": "Samir",
+      "avis": "Un moment agréable, un restaurant au top !",
+    },
+    {
+      "id": 4,
+      "name": "Jhonny",
+      "avis": "Très bon restaurant",
+    },
+  ])
+});
+
+app.get('/deliveryData', (req, res) => {
+  db.all('SELECT * FROM client_addresses', (err, rows) => {
+    console.log(rows);
+    const deliveryData = rows;
+    console.log(deliveryData);
+    res.json(deliveryData);
+  });
+});
+
+app.post('/deliveryData', (req, res) => {
+  console.log(req.body);
+  db.run(
+    'INSERT INTO client_addresses VALUES ($nameValue, $addressValue, $telephoneValue, $addressComplementValue)',
+    {
+      $nameValue: req.body.nameValue,
+      $addressValue: req.body.addressValue,
+      $telephoneValue: req.body.telephoneValue,
+      $addressComplementValue: req.body.addressComplementValue                  
+    },
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/deliveryData)'});
+      } else {
+        res.send({message: 'successful run app.post(/deliveryData)'});     
+      }
+    } 
+  );
 });
 
 const port = 5000;
