@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardImg, CardText, CardBody,
+import { Card, CardText, CardBody,
     CardTitle, Button } from 'reactstrap';
 import image from '../../images/motorcycle.jpg';
 

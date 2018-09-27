@@ -40,10 +40,9 @@ class Header extends React.Component {
     );
   }
 }
-
-// Header.propTypes = {
-//   cartCounter: PropTypes.number.isRequired,
-// };
+Header.propTypes = {
+  cartCounter: PropTypes.number.isRequired,
+};
 
 
 export default Header;

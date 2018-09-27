@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import Livraison from 'src/components/Livraison';
-import { changeInput, sendDeliveryAddress } from 'src/store/reducer';
+import Livraison from '../components/Livraison';
+import { changeInput, sendDeliveryAddress } from '../store/reducer';
 
 const mapStateToProps = (state, ownProps) => ({
   nameValue: state[ownProps.nameValue],

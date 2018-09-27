@@ -15,12 +15,10 @@ class Livraison extends Component {
 
     render() {
         const {
-            placeholder,
             nameValue,
             telephoneValue,
             addressValue,
             addressComplementValue,
-            type,
         } = this.props;
         return (
             <div className="container panier">
