@@ -35,6 +35,14 @@ const mapDispatchToProps = (dispatch, getState, ownProps) => ({
       menu,
     });
   },
+  emptyCartHandler: menus => (evt) => {
+    evt.preventDefault();
+    console.log(menus)
+    dispatch({
+      type: 'EMPTY_CART_HANDLER',
+      menus,
+    });
+  }
 });
 
 

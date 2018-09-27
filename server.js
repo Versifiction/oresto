@@ -82,8 +82,24 @@ app.get('/avis', (req, res) => {
   res.json([
     {
       "id": 1,
+      "name": "Gérard",
+      "avis": "Très bon restaurant, rien à dire. Super accueil et service !",
+    },
+    {
+      "id": 2,
+      "name": "Pierre",
       "avis": "Très Très bon restaurant",
-    }
+    },
+    {
+      "id": 3,
+      "name": "Samir",
+      "avis": "Un moment agréable, un restaurant au top !",
+    },
+    {
+      "id": 4,
+      "name": "Jhonny",
+      "avis": "Très bon restaurant",
+    },
   ])
 });
 

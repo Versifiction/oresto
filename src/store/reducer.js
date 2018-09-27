@@ -5,6 +5,8 @@ const defaultDeliveryAddress = {
   addressComplementValue: '',
 };
 
+const defaultMenus = [];
+
 const initialState = {
   menus: [],
   cartCounter: 0,
@@ -20,6 +22,7 @@ export const DELETE_MENU_HANDLE = 'DELETE_MENU_HANDLE';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 export const ON_SUBMIT_DELIVERY = 'ON_SUBMIT_DELIVERY';
 export const SEND_DELIVERY_ADDRESS = 'SEND_DELIVERY_ADDRESS';
+export const EMPTY_CART_HANDLER = 'EMPTY_CART_HANDLER';
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
@@ -95,6 +98,12 @@ const reducer = (currentState = initialState, action = {}) => {
         deliveryAddress: defaultDeliveryAddress, // reset
       };
 
+    case EMPTY_CART_HANDLER:
+      return {
+        ...currentState,
+        menus: defaultMenus,
+      };
+
     default: return currentState;
   }
 };
@@ -125,6 +134,10 @@ export const changeInput = ({ key, value }) => ({
 
 export const sendDeliveryAddress = () => ({
   type: SEND_DELIVERY_ADDRESS,
+});
+
+export const emptyCartHandler = () => ({
+  type: EMPTY_CART_HANDLER,
 });
 
 
